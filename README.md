@@ -506,4 +506,16 @@ Using livenessProbes and readinessProbe allows you to tell Kubernetes about the 
 
 
 
+### Deploy Verification
+
+Wait for deploy to complete:
+```
+kubectl rollout status -n default deployments/springboot-microservice --watch
+```
+-or-
+```
+`curl --silent --fail --retry 60 --retry-delay 5 --retry-connrefused --insecure --output /dev/null $ENDPOINT/health`
+```
+
+
 
