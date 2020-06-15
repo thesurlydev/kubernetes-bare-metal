@@ -477,7 +477,7 @@ kubectl config get-contexts
 To switch from one cluster to another:
 
 ```
-kubectl config use-context shane@digitalsanctum.com@ra.us-east-1.eksctl.io
+kubectl config use-context kubernetes-admin@kubernetes
 ```
 
 ## Custom Namespaces
