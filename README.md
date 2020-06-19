@@ -9,6 +9,7 @@ The intent is to outline the steps necessary to install a multi-node Kubernetes 
   * [Components](#components)  
   * [Gotchas](#gotchas)
   * [Docker](#docker)
+      * [Installation](#installation)
   * [kubectl, kubeadm, kubelet](#kubectl-kubeadm-kubelet)
   * [kubelet service config](#kubelet-service-config)
   * [Disable Swap](#disable-swap)
@@ -58,7 +59,7 @@ The intent is to outline the steps necessary to install a multi-node Kubernetes 
 
 ## Docker
 
-### Install Docker
+### Installation
 
 First, update existing list of packages:
 ```
