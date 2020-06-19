@@ -58,7 +58,62 @@ The intent is to outline the steps necessary to install a multi-node Kubernetes 
 
 ## Docker
 
-```docker version```
+### Install Docker
+
+First, update existing list of packages:
+```
+sudo apt update
+```
+
+Next, install prerequisites:
+
+```
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+Add the GPG key for the official Docker repository:
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+```
+Add the Docker repository to APT sources:
+```
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+```
+Update package database with the Docker packages:
+```
+sudo apt update
+```
+Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
+```
+apt-cache policy docker-ce
+```
+Now, install:
+```
+sudo apt install docker-ce
+```
+
+
+
+Confirm install:
+```
+sudo systemctl status docker
+```
+should return somethink like:
+```
+docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Fri 2020-06-19 15:27:09 UTC; 4s ago
+     Docs: https://docs.docker.com
+ Main PID: 17823 (dockerd)
+    Tasks: 22
+   CGroup: /system.slice/docker.service
+           └─17823 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```           
+
+
+
+```
+docker version
+```
 
 ```bash
 Client: Docker Engine - Community
