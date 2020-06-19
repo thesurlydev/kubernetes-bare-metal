@@ -3,7 +3,7 @@
 Kubernetes setup for Ubuntu on bare metal.
 
 
-The intent is to outline the steps necessary to install a multi-node Kubernetes 1.18 cluster on Ubuntu 20.04.
+The intent is to outline the steps necessary to install a multi-node Kubernetes 1.18 cluster on Ubuntu 18.04.
 
 <!--ts-->   
   * [Components](#components)  
@@ -38,9 +38,9 @@ The intent is to outline the steps necessary to install a multi-node Kubernetes 
 
 ## Components
 
-* Ubuntu 20.04 Focal Fossa (development branch)
-* Kubernetes 1.18 with cgroups-driver=systemd
-* Docker 19.03.8
+* Ubuntu 18.04
+* Kubernetes 1.18 with `cgroups-driver=systemd`
+* Docker 19.03.11
 * Docker Hub Registry
 * Weave 2.6.2
 * Web UI (kubernetes dashboard)
@@ -217,21 +217,12 @@ sudo apt-mark hold kubelet kubeadm kubectl
 }
 ````
 
-Add the following to `/etc/apt/sources.list` (eoan since focal is not available yet):
-
-```bash
-deb [arch=amd64] https://download.docker.com/linux/ubuntu eoan stable
-```
-Add `/etc/apt/sources.list.d/kubernetes.list` with the following content (xenial is latest available and will still work with latest versions of Ubuntu):
-```bash
-deb https://apt.kubernetes.io/ kubernetes-xenial main
-```
-
 Add gpg key:
 ```bash
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 ```
 
+## Configuration
 
 Add the following to `/etc/default/kubelet`:
 ```bash
@@ -239,11 +230,7 @@ KUBELET_EXTRA_ARGS=--cgroup-driver=systemd
 ```
 
 
-
-
-## kubelet service config
-
-## Disable Swap
+### Disable Swap
 
 ```bash
 sudo swapoff -a
@@ -252,8 +239,7 @@ sudo swapoff -a
 To permanently disable swap (to survive reboot) then remove any **swap** entry from `/etc/fstab`.
 
 
-
-## Install via kubeadm
+### Configure kubeadm and kubelet
 
 ```
 sudo apt update
