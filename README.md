@@ -10,6 +10,7 @@ The intent is to outline the steps necessary to install a multi-node Kubernetes 
   * [Gotchas](#gotchas)
   * [Docker](#docker)
       * [Installation](#installation)
+      * [Post-install configuration](#post-install-configuration)
   * [kubectl, kubeadm, kubelet](#kubectl-kubeadm-kubelet)
   * [kubelet service config](#kubelet-service-config)
   * [Disable Swap](#disable-swap)
@@ -145,6 +146,8 @@ Server: Docker Engine - Community
   Version:          0.18.0
   GitCommit:        fec3683
 ```
+
+### Post-install Configuration
 
 Update cgroupdriver in `/etc/docker/daemon.json` to use systemd:
 ```
