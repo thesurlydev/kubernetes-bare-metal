@@ -321,6 +321,12 @@ kubeadm join 192.168.7.40:6443 --token th6npu.fmuxapxjzsx8k7zt \
     --discovery-token-ca-cert-hash sha256:e947ea9db4ef3182ac870618d300c16cac09d6de45c28ffab73b74099f673870
 ```
 
+If you need to add nodes later on and need the join command, use the following command to print it from the master node:
+```
+kubeadm token create --print-join-command
+```
+
+
 
 ## Dashboard
 
