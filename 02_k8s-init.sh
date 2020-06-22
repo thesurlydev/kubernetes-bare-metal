@@ -24,4 +24,7 @@ sudo apt install -y apt-transport-https ca-certificates curl software-properties
 
 sudo cp files/kubeadm-flags.env /var/lib/kubelet/
 
+echo ""
+echo "Reminder: Update /etc/fstab to disable swap"
+echo ""
 echo "Done!"

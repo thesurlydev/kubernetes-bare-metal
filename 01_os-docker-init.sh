@@ -25,8 +25,8 @@ echo "Adding current user to docker group"
 sudo gpasswd -a $USER docker
 echo "Activating change to docker group"
 newgrp docker
-echo "Testing change"
-docker pull hello-world
+# echo "Testing change"
+# docker pull hello-world
 
 echo "Copying daemon.json"
 sudo cp files/daemon.json /etc/docker/
