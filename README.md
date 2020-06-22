@@ -224,11 +224,6 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 
 ## Configuration
 
-Add the following to `/etc/default/kubelet`:
-```bash
-KUBELET_EXTRA_ARGS=--cgroup-driver=systemd
-```
-
 
 ### Disable Swap
 
@@ -244,22 +239,6 @@ To permanently disable swap (to survive reboot) then remove any **swap** entry f
 ```
 sudo apt update
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg2
-```
-
-Add the following to `/etc/systemd/system/kubelet.service.d/10-kubeadm.conf`:
-
-```
-[Service]
-Environment="KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf"
-Environment="KUBELET_CONFIG_ARGS=--config=/var/lib/kubelet/config.yaml"
-# This is a file that "kubeadm init" and "kubeadm join" generate at runtime, populatingthe KUBELET_KUBEADM_ARGS variable dynamically
-EnvironmentFile=-/var/lib/kubelet/kubeadm-flags.env
-# This is a file that the user can use for overrides of the kubelet args as a last resort. Preferably,
-# the user should use the .NodeRegistration.KubeletExtraArgs object in the configuration files instead.
-# KUBELET_EXTRA_ARGS should be sourced from this file.
-EnvironmentFile=-/etc/default/kubelet
-ExecStart=
-ExecStart=/usr/bin/kubelet $KUBELET_KUBECONFIG_ARGS $KUBELET_CONFIG_ARGS $KUBELET_KUBEADM_ARGS $KUBELET_EXTRA_ARGS
 ```
 
 Create dir if it doesn't exist:
@@ -303,7 +282,7 @@ Install via:
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 ```
 
-To disable NPS:
+To disable NPC:
 
 ```
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&disable-npc=true"
