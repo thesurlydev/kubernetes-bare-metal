@@ -2,10 +2,10 @@
 
 ## cluster topology
 
-nuc1 (192.168.7.121) - kubernetes controller
-nuc2 (192.168.7.122) - worker node
-nuc3 (192.168.7.123) - worker node
-nuc4 (192.168.7.124) - worker node
+* nuc1 (192.168.7.121) - kubernetes controller
+* nuc2 (192.168.7.122) - worker node
+* nuc3 (192.168.7.123) - worker node
+* nuc4 (192.168.7.124) - worker node
 
 
 ## all nodes
