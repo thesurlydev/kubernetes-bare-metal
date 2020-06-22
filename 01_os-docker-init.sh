@@ -39,3 +39,4 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 sudo systemctl enable docker
 
+echo "Done!"
