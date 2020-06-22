@@ -11,11 +11,11 @@
 ## all nodes
 
 Assuming 500GB disk: 
-    - partition 100GB with `ext4` and mount at `/`
-    - partition remaining space but leave unformatted and unmounted.
+* partition 100GB with `ext4` and mount at `/`
+* partition remaining space but leave unformatted and unmounted.
 
 Install Ubuntu 18.04.4 server:
-    - install openssh and nothing else.
+* install openssh and nothing else.
 
 ### enable no swap to survive reboots
 
