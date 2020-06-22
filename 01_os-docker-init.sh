@@ -4,9 +4,9 @@ set -e
 
 ubuntu_version=$(lsb_release -cs) # bionic
 
-SUDOER_LINE="${USER}  ALL=(ALL)  NOPASSWD=ALL"
-echo "Updating sudoers..."
-echo "$SUDOER_LINE" | sudo EDITOR='tee -a' visudo
+# SUDOER_LINE="${USER}  ALL=(ALL)  NOPASSWD=ALL"
+# echo "Updating sudoers..."
+# echo "$SUDOER_LINE" | sudo EDITOR='tee -a' visudo
 
 echo "Upgrading existing packages..."
 sudo apt update
