@@ -17,6 +17,24 @@ Assuming 500GB disk:
 Install Ubuntu 18.04.4 server:
     - install openssh and nothing else.
 
+### enable no swap to survive reboots
+
+Comment or remove line in `/etc/fstab` that starts with `swap`
+
+### sudo without password prompts
+
+Update `/etc/sudoers` via `visudo`.
+
+```
+sudo bash
+visudo
+```
+
+add:
+```
+shane   ALL=(ALL)   NOPASSWD:ALL
+```
+
 
 ## controller
 
