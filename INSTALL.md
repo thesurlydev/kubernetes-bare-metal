@@ -20,7 +20,22 @@ Install Ubuntu 18.04.4 server:
 
 ## controller
 
-
+```
+./01_os-docker-init.sh
+./02_k8s-init.sh
+./03_kubeadm-init.sh
+./04_kubeadm-post-init.sh
+./05_weave-network-install.sh
+./06_dashboard-install.sh
+./07-dashboard-bearer-token.sh
+./08_countour-install.sh
+./09_rook-ceph-install.sh
+```
 
 
 ## worker nodes
+
+```
+./01_os-docker-init.sh
+./02_k8s-init.sh
+```
