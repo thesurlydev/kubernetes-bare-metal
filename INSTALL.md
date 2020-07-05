@@ -38,5 +38,6 @@ Install Ubuntu 18.04.4 server:
 ```
 ./01_os-docker-init.sh
 ./02_k8s-init.sh
+./03_copy-kube-config.sh
 ./10_cluster-join.sh
 ```
